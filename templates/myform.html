@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+<form action="?" method="post" novalidate enctype="multipart/form-data" id="mainform1">
+{{ form.hidden_tag() }}
+
+<div class="row">
+    <div class="col-xs-10">
+        <button type="submit" class="btn btn-block btn-primary btn-lg"><i class="fa fa-shower"></i> Clean it</button>
+    </div>
+    <div class="col-xs-2">
+        <button type="button" class="btn btn-default btn-block btn-lg" data-toggle="collapse" data-target="#settings"><i class="fa fa-cogs"></i></button>
+    </div>
+</div>
+
+<div id="settings" class="collapse">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>Attributes</h4>
+            {% include 'attributes.html' %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>Tags</h4>
+            {% include 'tags.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        {{ form.text(class="form-control", placeholder=form.text.label.text) }}
+    </div>
+</div>
+
+</form>
+
+{% if pygmented_text != '' %}
+<div class="row">
+    <div class="col-md-12">
+        {{ pygmented_text|safe }}
+    </div>
+</div>
+{% endif%}
+
+{% endblock %}
