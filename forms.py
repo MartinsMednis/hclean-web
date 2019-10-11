@@ -4,7 +4,6 @@ from wtforms import ValidationError
 from wtforms.validators import DataRequired, Optional
 
 
-
 class Form1(FlaskForm):
     # attributes
     c_style = BooleanField('style', default="checked")
@@ -20,6 +19,7 @@ class Form1(FlaskForm):
     # tags
     c_font = BooleanField('font', default="checked")
     c_span = BooleanField('span', default="checked")
+    c_u = BooleanField('u', default="checked")
     # html input field
     text = TextAreaField('Text', validators=[Optional()])
     submit = SubmitField('Clean html')
