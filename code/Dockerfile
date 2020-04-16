@@ -11,10 +11,14 @@ RUN apt-get -qq -y install libpq-dev
 
 # Set work directory
 WORKDIR /code
+
 # Install dependencies
-COPY Pipfile Pipfile.lock /code/
+# COPY Pipfile Pipfile.lock /code/
+COPY requirements.txt /code/
 RUN pip install --upgrade pip
-RUN pip install pipenv && pipenv install --system
+RUN pip install -r requirements.txt
+
+# RUN pip install pipenv && pipenv install --system
 # Copy project
 COPY . /code/
 
